@@ -15,6 +15,7 @@ namespace Cwmosh.Models
         public bool IsSubscribedToNewsletter { get; set; }
         public MembershipType MembershipType { get; set; }
         public byte MembershipTypeId { get; set; }
+        [Display(Name = "Date Of Bird")]
         public DateTime? Birthdate { get; set; }
     }
 }
