@@ -1,9 +1,10 @@
-﻿    using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Cwmosh.Models;
+using Cwmosh.ViewModel;
 
 namespace Cwmosh.Controllers
 {
@@ -13,7 +14,20 @@ namespace Cwmosh.Controllers
         public ActionResult Random()
         {
             var movie = new Movie() { Name = "Froozzeen!!" };
-             return View(movie);
+            var customers = new List<Customer>
+            {
+                new Customer {Name = "Customer One" },
+                new Customer {Name = "Customer Two" }
+
+            };
+
+            var viewModel = new RandomMovieViewModel
+            {
+                Movie = movie,
+                Customers = customers
+            };
+
+            return View(viewModel);
         }
 
         public ActionResult Edit(int id)
