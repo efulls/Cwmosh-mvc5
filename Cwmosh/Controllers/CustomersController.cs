@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Cwmosh.Models;
+using Cwmosh.ViewModel;
 
 namespace Cwmosh.Controllers
 {
@@ -24,7 +25,12 @@ namespace Cwmosh.Controllers
 
         public ActionResult New()
         {
-            return View();
+            var membershipTypes = _context.MembershipTypes.ToList();
+            var viewModel = new NewCustomerViewModel
+            {
+                MembershipType = membershipTypes
+            };
+            return View(viewModel);
         }
 
         // GET: Customers
