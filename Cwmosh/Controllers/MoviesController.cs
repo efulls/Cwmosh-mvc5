@@ -34,7 +34,7 @@ namespace Cwmosh.Controllers
         {
             return Content("id=" + id);
         }
-
+        /*
         public ActionResult Index(int? pageIndex, string sortBy)
         {
             if (!pageIndex.HasValue)
@@ -42,6 +42,23 @@ namespace Cwmosh.Controllers
             if (String.IsNullOrWhiteSpace(sortBy))
                 sortBy = "name";
             return Content(String.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
+        }
+        */
+
+        public ViewResult Index()
+        {
+            var movies = GetMovies();
+
+            return View(movies);
+        }
+
+        private IEnumerable<Movie> GetMovies()
+        {
+            return new List<Movie>
+            {
+                new Movie { Id = 1, Name = "Froozeen" },
+                new Movie { Id = 2, Name = "Lalaland" }
+            };
         }
 
         [Route("movies/released/{year}/{month:regex(\\d{2}):range(1,12)}")]
