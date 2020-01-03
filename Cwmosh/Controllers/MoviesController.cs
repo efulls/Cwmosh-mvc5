@@ -29,5 +29,10 @@ namespace Cwmosh.Controllers
                 sortBy = "name";
             return Content(String.Format("pageIndex={0}&sortBy={1}", pageIndex, sortBy));
         }
+
+        public ActionResult ByReleaseDated(int year, int month)
+        {
+            return Content(year + "/" + month);
+        }
     }
 }
