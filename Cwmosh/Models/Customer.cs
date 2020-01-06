@@ -21,6 +21,7 @@ namespace Cwmosh.Models
         public byte MembershipTypeId { get; set; }
 
         [Display(Name = "Date Of Bird")]
+        [Min18YearsIfAMember]
         public DateTime? Birthdate { get; set; }
     }
 }
