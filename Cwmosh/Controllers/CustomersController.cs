@@ -28,6 +28,7 @@ namespace Cwmosh.Controllers
             var membershipTypes = _context.MembershipTypes.ToList();
             var viewModel = new CustomerFormViewModel
             {
+                Customer = new Customer(),
                 MembershipType = membershipTypes
             };
             return View("CustomerForm",viewModel);
